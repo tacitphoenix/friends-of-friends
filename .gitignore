@@ -1,6 +1,16 @@
+# General
 .DS_Store
 temp/
+config.yml
+
+# Node
 node_modules/
+
+# Python
 __pycache__/
 *.pyc
-config.yml
+
+# Java
+.idea/
+out/
+lib/

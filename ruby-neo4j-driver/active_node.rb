@@ -2,7 +2,7 @@ require './neo4j_init'
 require 'neo4j'
 
 # Get session
-session = Neo4jInit.getSession("./config.yml")
+session = Neo4jInit.getSession("../config.yml")
 
 # ActiveNode models:
 Neo4j::ActiveBase.current_session = session

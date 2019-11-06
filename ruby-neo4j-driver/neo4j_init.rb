@@ -8,7 +8,7 @@ module Neo4jInit
         if File.file?(config_file)
             # Read file and construct connection string
             neo = YAML.load(File.read(config_file))
-            conn_str = "http://#{neo['username']}:#{neo['password']}@#{neo['host']}:#{neo['http_port']}"
+            conn_str = "http://#{neo['userName']}:#{neo['password']}@#{neo['host']}:#{neo['httpPort']}"
         else
             abort "Configuration file config.yml not found"
         end

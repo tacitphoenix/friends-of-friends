@@ -1,7 +1,7 @@
 require './neo4j_init'
 
 # Get session
-session = Neo4jInit.getSession("./config.yml")
+session = Neo4jInit.getSession("../config.yml")
 
 # Friends of a friend
 foaf_query = <<QUERY

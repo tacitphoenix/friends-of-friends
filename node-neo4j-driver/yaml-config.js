@@ -5,7 +5,7 @@ const fs = require('fs');
 function getNeo4jDriver(configFile){
   try {
     const ncfg = yaml.safeLoad(fs.readFileSync(configFile, 'utf8'));
-    const driver = neo4j.driver(`bolt://${ncfg.host}`, neo4j.auth.basic(ncfg.username, ncfg.password));
+    const driver = neo4j.driver(`bolt://${ncfg.host}`, neo4j.auth.basic(ncfg.userName, ncfg.password));
     return driver;
   } catch(e) {
     return e;

@@ -1,5 +1,5 @@
 const getNeo4jDriver = require("./yaml-config");
-const driver = getNeo4jDriver("./config.yml");
+const driver = getNeo4jDriver("../config.yml");
 const session = driver.session();
 
 const commonFriendsQuery =

@@ -1,0 +1,29 @@
+{
+  "name": "friends-of-friends",
+  "version": "1.0.0",
+  "description": "Test-drive Node Neo4J driver",
+  "main": "index.js",
+  "dependencies": {
+    "js-yaml": "^3.13.1",
+    "neo4j-driver": "^1.7.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tacitphoenix/friends-of-friends.git"
+  },
+  "keywords": [
+    "graph",
+    "db",
+    "neo4j"
+  ],
+  "author": "tacitphoenix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tacitphoenix/friends-of-friends/issues"
+  },
+  "homepage": "https://github.com/tacitphoenix/friends-of-friends#readme"
+}

@@ -1,0 +1,17 @@
+name: social
+version: 0.1.0
+
+authors:
+  - tacitphoenix <Samson Ondiek>
+
+targets:
+  social:
+    main: src/social.cr
+
+dependencies:
+  neo4j:
+    github: jgaskins/neo4j.cr
+
+crystal: 0.31.1
+
+license: MIT

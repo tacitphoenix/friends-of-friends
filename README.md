@@ -22,3 +22,4 @@ cp config.yml.example config.yml
 3. [Node](node-neo4j-driver/README.md)
 4. [Python](python-neo4j-driver/README.md)
 5. [Ruby](ruby-neo4j-driver/README.md)
+6. [Elixir](elixir-neo4j-driver/README.md)

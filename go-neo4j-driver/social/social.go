@@ -1,31 +1,36 @@
 package social
 
 import (
-	"io/ioutil"
-	"log"
+	"fmt"
 
-	"gopkg.in/yaml.v2"
+	"github.com/neo4j/neo4j-go-driver/neo4j"
 )
 
-type Neo4jConfig struct {
-	Username  string `yaml:"userName"`
-	Password  string
-	Host      string
-	BoltPort  string `yaml:"boltPort"`
-	HttpPort  string `yaml:"httpPort"`
-	HttpsPort string `yaml:"httpsPort"`
-}
+var (
+	session neo4j.Session
+	result  neo4j.Result
+)
 
-func GetNeo4jConfig(configFile string) Neo4jConfig {
-	var config Neo4jConfig
-	data, err := ioutil.ReadFile(configFile)
+func TryGraph() (neo4j.Result, error) {
+	driver, err := SocialDriver()
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
+	}
+	defer driver.Close()
+
+	if session, err = driver.Session(neo4j.AccessModeWrite); err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
+	defer session.Close()
+
+	result, err = session.Run("CREATE (n:Item { id: $id, name: $name }) RETURN n.id, n.name", map[string]interface{}{
+		"id":   1,
+		"name": "Item 1",
+	})
+	if err != nil {
+		return nil, err // handle error
 	}
 
-	if err = yaml.Unmarshal(data, &config); err != nil {
-		log.Fatal(err)
-	}
-
-	return config
+	return result, nil
 }

@@ -15,7 +15,8 @@ brew install michael-simons/homebrew-seabolt/seabolt
 ### Setup
 
 ```bash
-go get github.com/neo4j/neo4j-go-driver/neo4j
+go mod tidy
+go test -v
 ```
 
 [go-driver]: https://github.com/neo4j/neo4j-go-driver

@@ -2,11 +2,13 @@
 
 A simple Go program that test drives the Neo4j Go Driver.
 
-## Prerequisites
+### Prerequisites
 
-Before the Go driver can be installed certain conditions need to be meet check this [guide](https://medium.com/neo4j/lets-go-with-neo4j-4f153e343128).
+```bash
+brew install michael-simons/homebrew-seabolt/seabolt
+```
 
-## Driver
+### Driver
 
 [neo4j-go-driver][go-driver] (**Official Driver**) | [Docs][go-driver-docs]
 

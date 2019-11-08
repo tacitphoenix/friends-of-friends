@@ -4,9 +4,9 @@ import (
 	"testing"
 )
 
-func TestTryGraph(t *testing.T) {
+func TestCreateItem(t *testing.T) {
 	var want string = "Item 1"
-	result, err := TryGraph()
+	result, err := CreateItem()
 	if err != nil {
 		t.Errorf(err.Error())
 	}

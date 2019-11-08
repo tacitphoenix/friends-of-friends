@@ -11,7 +11,7 @@ var (
 	result  neo4j.Result
 )
 
-func TryGraph() (neo4j.Result, error) {
+func RunQuery(cypher string, params map[string]interface{}) (neo4j.Result, error) {
 	driver, err := SocialDriver()
 	if err != nil {
 		return nil, err
@@ -24,13 +24,20 @@ func TryGraph() (neo4j.Result, error) {
 	}
 	defer session.Close()
 
-	result, err = session.Run("CREATE (n:Item { id: $id, name: $name }) RETURN n.id, n.name", map[string]interface{}{
-		"id":   1,
-		"name": "Item 1",
-	})
+	result, err = session.Run(cypher, params)
 	if err != nil {
-		return nil, err // handle error
+		return nil, err
 	}
 
 	return result, nil
+}
+
+func CreateItem() (neo4j.Result, error) {
+	query := "CREATE (n:Item { id: $id, name: $name }) RETURN n.id, n.name"
+	params := map[string]interface{}{"id": 1, "name": "Item 1"}
+	result, err := RunQuery(query, params)
+	if err != nil {
+		return nil, err
+	}
+	return result, err
 }

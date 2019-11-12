@@ -23,6 +23,7 @@ describe "Social::Graph" do
   it "connecting paths" do
     sg = Social::Graph.new
     res = sg.connecting_paths
-    res.data.should eq([["Anna"]])
+    count = res.data[0].size
+    count.should eq(1)
   end
 end

@@ -13,7 +13,6 @@ module Neo4jInit
             abort "Configuration file config.yml not found"
         end
         
-        puts "Neo4j Connection String: #{conn_str}"
         # Use HTTP adapter to create session
         http_adaptor = Neo4j::Core::CypherSession::Adaptors::HTTP.new(conn_str, {})
         Neo4j::Core::CypherSession.new(http_adaptor)

@@ -11,9 +11,7 @@ A simple Java program that test drives the Neo4j Java Driver.
 ```bash
 ./copy_config.sh
 cd social
-mvn package
-cd target
-java -jar social-1.0.0-SNAPSHOT.jar
+mvn test
 ```
 
 [java-driver]: https://github.com/neo4j/neo4j-java-driver

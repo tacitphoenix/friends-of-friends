@@ -9,9 +9,7 @@ A simple Crystal program that test drives the Neo4j Crystal Driver.
 ### Setup
 
 ```bash
+cd social
 shards install
-crystal src/insert_friends.cr
-crystal src/common_friends.cr
-crystal src/connecting_paths.cr
-crystal src/friends_of_a_friend.cr
+crystal spec
 ```

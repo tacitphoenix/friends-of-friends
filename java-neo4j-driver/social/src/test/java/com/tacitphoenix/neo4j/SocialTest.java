@@ -1,38 +1,48 @@
 package com.tacitphoenix.neo4j;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
 
-/**
- * Unit test for simple App.
- */
-public class SocialTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public SocialTest( String testName )
-    {
-        super( testName );
-    }
+import java.util.Arrays;
+import java.util.List;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( SocialTest.class );
-    }
+import org.junit.Test;
+import org.neo4j.driver.v1.StatementResult;
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+public class SocialTest {
+  @Test
+  public void insertFriends() {
+    Social social = new Social();
+    StatementResult result = social.insertFriends();
+    while (result.hasNext()){
+        assertEquals(result.next().get("name").asList(), "Anna");
     }
+  }
+
+  @Test
+  public void friendsOfAFriend() {
+    Social social = new Social();
+    StatementResult result = social.friendsOfAFriend();
+    while (result.hasNext()){
+        assertEquals(result.next().get("name").asString(), "Anna");
+    }
+  }
+
+  @Test
+  public void commonFriends() {
+    Social social = new Social();
+    StatementResult result = social.commonFriends();
+    while (result.hasNext()){
+        assertEquals(result.next().get("friend").asString(), "Bob");
+    }
+  }
+
+  @Test
+  public void connectingPaths() {
+    List names = Arrays.asList("Joe", "Sally", "Anna", "Jim", "Billy");
+    Social social = new Social();
+    StatementResult result = social.connectingPaths();
+    while (result.hasNext()){
+        assertEquals(result.next().get("names").asList(), names);
+    }
+  }
 }
